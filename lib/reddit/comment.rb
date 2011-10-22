@@ -1,7 +1,7 @@
 module Reddit
   # A reddit comment.
   class Comment
-    attr_reader :body, :name, :ups, :downs, :url, :domain, :author, :id, :created_at, :replies
+    attr_reader :body, :body_html, :name, :ups, :downs, :url, :domain, :author, :id, :created_at, :replies
     
     # Initializes the data for the comment.  Takes a hash of the various attributes as taken from the API.
     def initialize(attributes)
@@ -13,6 +13,7 @@ module Reddit
       @id = attributes['id']
       @created_at = Time.at(attributes['created']) unless attributes['created'].nil?
       @body = attributes['body']
+      @body_html = attributes['body_html']
       @replies = []
       
       unless attributes['replies'].nil? or attributes['replies']['data'].nil? or attributes['replies']['data']['children']
