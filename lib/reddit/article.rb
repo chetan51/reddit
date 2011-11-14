@@ -4,7 +4,7 @@ module Reddit
     attr_reader :score, :name, :title, :comment_count, :ups, :downs, :url, :domain, :author, :id, :created_at, :selftext, :selftext_html
     
     # Initializes the data for the article.  Takes a hash of the various attributes as taken from the API.
-    def initialize(attributes)
+    def initialize(attributes = {})
       @score = attributes['score']
       @name = attributes['name']
       @title = attributes['title']

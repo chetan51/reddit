@@ -5,7 +5,7 @@ module Reddit
     attr_reader :name
     
     # Initialize based on the user's name.
-    def initialize(name)
+    def initialize(name = "")
       @name = name
       @url = PROFILE_URL.gsub('[username]', @name)
     end
